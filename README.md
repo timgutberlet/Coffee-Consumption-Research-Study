@@ -4,4 +4,4 @@ The aim of this report is to investigate the effects coffee has on university st
 The main discoveries are that the fact that students who consume multiple cups of coffee experience less sleep and have a worse sleep quality. Hence, they are more likely to be tired at the morning which is also supported by findings of related articles.
 
 # Code
-The Report was produced in Rmarkdown using R and exported into an HTML file. 
+The Report was produced in Rmarkdown using R (mainly ggplot) and exported into an HTML file. 
