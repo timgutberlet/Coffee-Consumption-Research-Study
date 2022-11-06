@@ -1,5 +1,5 @@
 ---
-title: "Project 2"
+title: "Project"
 author: "Tim Gutberlet"
 subtitle: "The Impact of Coffee Consumption on sleep Quality and Duration"
 date: "University of Sydney | 21 September 2022"
