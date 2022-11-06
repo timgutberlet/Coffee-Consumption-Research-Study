@@ -1,0 +1,50 @@
+Timestamp,Are you a University Student?,How many years have you already been at University?,How old are you,How many hours do you sleep per night on average?,How would you consider your sleep quality?,Would you consider yourself an active coffee drinker? (Drink Coffee at least once a Week),What sort of Coffee do you drink at least once a Week?,"On Average, How many Coffees do you drink a week?",How many years have you drank coffee at least once a week?,Where do you usually get your coffee from,On What times of the day do you usually drink your coffee?
+9/1/2022 13:24:50,Yes,5,5,5,4,No,,,,,
+9/1/2022 13:31:33,Yes,1,18,7,5,Yes,Cappuccino,5,5,Starbucks,10:00 - 11:59
+9/1/2022 13:39:58,Yes,1,21,8,5,No,,,,,
+9/1/2022 13:42:49,Yes,1,19,7,8,Yes,Latte,2,1,Homemade coffee,8:00 - 9:59
+9/1/2022 13:44:23,Yes,2,19,7,7,No,,,,,
+9/1/2022 13:46:58,Yes,1,20,8,6,Yes,"Cappuccino, Espresso, Black",5,4,"Homemade coffee, Other Coffee Stores",8:00 - 9:59
+9/1/2022 13:48:32,Yes,2,22,7,7,Yes,Cappuccino,7,5,Homemade coffee,8:00 - 9:59
+9/1/2022 15:30:50,Yes,1,21,6,4,No,,,,,
+9/1/2022 18:15:22,Yes,2,20,7,5,Yes,Latte,1,2,"Homemade coffee, University food spots, Local Bakery, Other Coffee Stores","8:00 - 9:59, 10:00 - 11:59"
+9/1/2022 19:15:31,Yes,1,18,6,6,Yes,Flat White (duh!),4,3,Other Coffee Stores,"10:00 - 11:59, 12:00 - 13:59"
+9/1/2022 20:08:09,Yes,1,24,9,7,Yes,Iced,4,1,Homemade coffee,8:00 - 9:59
+9/1/2022 21:08:19,Yes,1,18,8,8,No,,,,,
+9/2/2022 12:50:11,Yes,1,19,7,10,No,,,,,
+9/2/2022 15:58:01,Yes,5,23,7,3,Yes,"Espresso, Doppio, Irish",10,1,my house,6:00 - 7:59
+9/3/2022 11:23:45,Yes,1,18,8,6,Yes,"Latte, Cappuccino",6,4,Homemade coffee,"8:00 - 9:59, 14:00 - 15:59"
+9/3/2022 16:03:22,Yes,1,20,10,5,No,,,,,
+9/4/2022 19:24:14,Yes,1,19,7,7,No,,,,,
+9/4/2022 21:01:33,Yes,1,20,8,7,No,,,,,
+9/4/2022 23:49:25,Yes,1,18,4,2,Yes,"Latte, Cappuccino, Mocha",5,3,"Homemade coffee, University food spots","6:00 - 7:59, 8:00 - 9:59, 12:00 - 13:59, 16:00 - 17:59"
+9/5/2022 15:15:03,Yes,1,34,7,8,No,,,,,
+9/5/2022 22:58:17,Yes,2,21,7,8,Yes,Latte,3,5,"Homemade coffee, University food spots, Local Bakery","10:00 - 11:59, 12:00 - 13:59, 14:00 - 15:59"
+9/7/2022 12:01:31,Yes,1,20,9,7,Yes,"Cappuccino, Mocha, Iced Coffee",4,2,"Homemade coffee, University food spots, Other Coffee Stores","10:00 - 11:59, 14:00 - 15:59"
+9/7/2022 17:04:13,Yes,1,18,7,4,No,,,,,
+9/8/2022 12:29:07,Yes,2,20,8,6,No,,,,,
+9/8/2022 12:31:55,Yes,4,23,6.5,7,Yes,Latte,7,4,"Homemade coffee, University food spots, Local Bakery","10:00 - 11:59, 16:00 - 17:59"
+9/8/2022 12:32:57,Yes,3,21,7,7,Yes,"Cappuccino, Flat White",5,3,"Homemade coffee, University food spots, Other Coffee Stores","8:00 - 9:59, 14:00 - 15:59"
+9/8/2022 12:35:19,Yes,2,19,9,9,No,,,,,
+9/8/2022 12:36:14,Yes,4,25,5,6,Yes,"Latte, Café au Lait",17,7,"Starbucks, Homemade coffee, University food spots, Local Bakery, Other Coffee Stores","8:00 - 9:59, 12:00 - 13:59, 16:00 - 17:59"
+9/8/2022 12:49:43,Yes,5,25,7,7,Yes,"Latte, Cappuccino, Macchiato, Café au Lait",8,5,"Starbucks, University food spots","8:00 - 9:59, 12:00 - 13:59"
+9/8/2022 13:40:17,Yes,3,20,7,5,Yes,"Latte, Black, Mocha, picolo ",3,3,"Homemade coffee, Other Coffee Stores","12:00 - 13:59, 14:00 - 15:59, 18:00 - 19:59"
+9/8/2022 13:40:35,Yes,3,21,8,8,Yes,Black,7,1,Homemade coffee,8:00 - 9:59
+9/8/2022 13:42:48,Yes,2.5,20,8,3,No,,,,,
+9/8/2022 13:46:12,Yes,3,20,6,7,Yes,"Latte, Espresso, Mocha",7,1,Maccas,"10:00 - 11:59, 4:00 - 5:59"
+9/8/2022 13:51:03,Yes,2.5,21,8.5,8,No,,,,,
+9/8/2022 13:54:30,Yes,1,21,8,7,No,,,,,
+9/8/2022 14:01:16,Yes,2,19,6,5,Yes,Latte,10,8,"Starbucks, Gloria Jeans, Homemade coffee, University food spots, Other Coffee Stores","12:00 - 13:59, 14:00 - 15:59, 4:00 - 5:59"
+9/8/2022 14:04:23,Yes,2,20,8,7,No,,,,,
+9/8/2022 14:07:35,Yes,1,19,7,8,No,,,,,
+9/8/2022 14:27:05,Yes,1.5,20,7,4,Yes,Latte,20,7,"Homemade coffee, University food spots","8:00 - 9:59, 10:00 - 11:59, 18:00 - 19:59"
+9/8/2022 16:58:00,Yes,1,19,6.5,5,No,,,,,
+9/16/2022 19:09:42,Yes,2,22,6.5,4,Yes,"Americano, Cappuccino, Doppio, Arabica, Robusta, Black",15,4,"Around the corner of Redfern Station, Starbucks, Homemade coffee","10:00 - 11:59, 14:00 - 15:59, 18:00 - 19:59"
+9/16/2022 19:11:56,Yes,2,21,7.5,8,Yes,"Latte, Espresso, Arabica, Macchiato",2,4,"Starbucks, Gloria Jeans, University food spots",10:00 - 11:59
+9/16/2022 19:13:14,Yes,1,19,6,3,Yes,"Americano, Cappuccino, Arabica, Black",19,3,"Starbucks, Homemade coffee, Local Bakery",8:00 - 9:59
+9/16/2022 19:20:56,Yes,2,19,6,4,Yes,"Cappuccino, Doppio, Black, Macchiato",15,5,"Starbucks, University food spots",18:00 - 19:59
+9/16/2022 19:22:03,Yes,4,23,8,9,Yes,"Cappuccino, Black, Café au Lait",1,2,"Starbucks, Local Bakery",14:00 - 15:59
+9/16/2022 19:23:02,Yes,1,20,6.5,3,Yes,"Latte, Americano, Espresso, Robusta, Black, Mocha, Café au Lait",18,2,"Around the corner of Redfern Station, University food spots",10:00 - 11:59
+9/16/2022 19:26:44,Yes,5,24,6,3,Yes,"Cappuccino, Doppio, Black",14,6,"Gloria Jeans, University food spots","10:00 - 11:59, 16:00 - 17:59"
+9/16/2022 19:27:23,Yes,2,22,5,2,Yes,"Espresso, Robusta",21,4,"Gloria Jeans, Other Coffee Stores","10:00 - 11:59, 14:00 - 15:59"
+9/16/2022 19:28:32,Yes,3,21,5.5,4,Yes,Cappuccino,16,2,Gloria Jeans,12:00 - 13:59

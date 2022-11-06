@@ -1,0 +1,241 @@
+---
+title: "Project 2"
+author: "Tim Gutberlet"
+subtitle: "The Impact of Coffee Consumption on sleep Quality and Duration"
+date: "University of Sydney | 21 September 2022"
+output:
+  html_document:
+    fig_caption: yes
+    number_sections: yes
+    self_contained: yes
+    theme: flatly
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    code_folding: hide
+---
+
+<br>
+
+# Executive Summary
+Sleep duration and sleep quality are aspects of sleep which are vital to every students daily routine. It allows for relaxation and reduces burnout, thus sleep increases a students ability to think and learn. <br>
+The aim of this report is to investigate the effects coffee has on university students' sleep quality and the duration of their sleep.
+The main discoveries are that the fact that students who consume multiple cups of coffee experience less sleep and have a worse sleep quality. Hence, they are more likely to be tired at the morning due to findings of related articles.
+<br>
+
+# Full Report
+
+## Initial Data Analysis (IDA)
+### Source of the Data
+The Data came from a survey called Coffee Research Study created in a google docs survey. <br>[The link to our survey](https://docs.google.com/forms/d/e/1FAIpQLSdquRFlpcG9CVZWPfwit-VDEXhdcZutKy5YTDJrwvjw1HRTDw/viewform.)<br>
+We exported the results into the csv-File "CoffeeStudy.csv".
+```{r, message=FALSE}
+#Get Tidyverse for the ggplot Analysis
+library(tidyverse)
+# Read in the survey data
+survey = read.csv("CoffeeStudy.csv")
+```
+
+### Structure of the Data
+There are 49 rows and 12 variables as columns.
+```{r, message=FALSE}
+## Size of data
+dim(survey)
+```
+Important variables for our Dataset are in the following table including discussion for reclassification:
+
+| variable                                          | Type    | Reclassification needed                                                                     |
+|---------------------------------------------------|:-------:|--------------------------------------------------------------------------------------------:|
+| How.many.hours.do.you.sleep.per.night.on.average. | number  | No - hours can be float or int |
+| How.would.you.consider.your.sleep.quality.        | integer |   No - sleep quality is an int from 0-10                             |
+| On.Average..How.many.Coffees.do.you.drink.a.week. | integer |    No, only ints were allowed in the survey         |
+```{r, message=FALSE}
+## classification of data
+str(survey)
+```
+### Limitations of the Data
+Limitations are that we only have about 50 data rows (even less when only considering active coffee drinkers - see Graph below), which is a low amount of data for conclusions. Moreover the values for coffee consumption and sleep quality and duration are only estimations by the survey takers and could differ in reality.
+```{r, message=FALSE}
+ggplot(survey, aes(x = Would.you.consider.yourself.an.active.coffee.drinker...Drink.Coffee.at.least.once.a.Week.)) +
+  geom_bar(color="blue", fill="steelblue") +              
+  xlab("Do you drink Coffee at least once a week") +
+  ylab("Frequency") + 
+  ggtitle("Count of active Coffee drinkers vs non-active Coffee Drinkers") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+
+### Assumptions 
+We assume, that regular coffee consumption seen by the average coffee consumption per week has a negative effect on the sleep quality and duration. 
+
+### Data Cleaning
+It was important to change the titles of every columns, so that they are easier to read and to work with.
+```{r}
+# Rename column where names is "Sepal.Length"
+names(survey)[names(survey) == "Are.you.a.University.Student."] <- "isStudent"
+names(survey)[names(survey) == "How.many.years.have.you.already.been.at.University."] <- "universityYears"
+names(survey)[names(survey) == "How.old.are.you"] <- "age"
+names(survey)[names(survey) == "How.many.hours.do.you.sleep.per.night.on.average."] <- "sleepHours"
+names(survey)[names(survey) == "How.would.you.consider.your.sleep.quality."] <- "sleepQuality"
+names(survey)[names(survey) == "Would.you.consider.yourself.an.active.coffee.drinker...Drink.Coffee.at.least.once.a.Week."] <- "activeCoffeeDrinker"
+names(survey)[names(survey) == "What.sort.of.Coffee.do.you.drink.at.least.once.a.Week."] <- "coffeeSort"
+names(survey)[names(survey) == "On.Average..How.many.Coffees.do.you.drink.a.week."] <- "coffeeAverage"
+names(survey)[names(survey) == "How.many.years.have.you.drank.coffee.at.least.once.a.week."] <- "yearsCoffee"
+names(survey)[names(survey) == "Where.do.you.usually.get.your.coffee.from"] <- "coffeeSource"
+names(survey)[names(survey) == "On.What.times.of.the.day.do.you.usually.drink.your.coffee."] <- "coffeTimes"
+
+
+#str(survey)
+```
+
+Moreover we had to clean the dataset of all students that do not consume coffee regularly. This was done because for our research question we only need the data of students consuming coffee.
+```{r, message=FALSE}
+#Drop all empty value rows out of the table and reassign it to the survey table
+survey <- na.omit(survey)
+```
+
+## Research Theme
+We want to research what effect coffee consumption has on the sleep of University students. We want to find out if there is a negative (or maybe also positive) impact of coffee on sleep quality and duration. Consequently are two integrated research questions are:
+
+### Research Question 1
+Firstly we want to research the relation of coffee consumption to the amount of sleep an individual gets. 
+```{r, message=FALSE}
+ggplot(survey, aes(x = coffeeAverage, y = sleepHours)) +
+  geom_point(shape=23, fill="blue", color="darkred", size=2) +               
+  xlab("Average coffee count per Week") +
+  ylab("Hours of Sleep per night") + 
+  ggtitle("Relationship between sleep hours per night and average coffee Consumption") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+
+```{r, message=FALSE}
+### Fitting the model
+#Fit a model for Count of Coffee per Week to sleephours
+fit <- lm(coffeeAverage~ sleepHours, data = survey)
+fit # print
+summary(fit)
+```
+Firstly we look if there is a correlation, and it is a light correlation with -0.5094495.
+```{r, message=FALSE}
+### Correlation
+cor(survey$coffeeAverage,survey$sleepHours) #
+```
+```{r, message=FALSE}
+### Resid vs Fitted
+# we use plot() on the `fit` object 
+plot(fit, which = 1) 
+```
+```{r, message=FALSE}
+### Resid vs Fitted - ggplot
+ggplot(fit, aes(x = .fitted, y = .resid)) +
+  geom_point(shape=23, fill="blue", color="darkred", size=2) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "red") +
+  ggtitle("Resid vs Fitted") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+Here is again the plot with the fitted model in it.
+```{r, message=FALSE}
+### Integrated
+ggplot(survey, aes(x = coffeeAverage, y = sleepHours)) +
+  geom_point(shape=23, fill="blue", color="darkred", size=2) +                
+  geom_smooth(method = "lm") +  # *NEW* add linear regression model
+  xlab("Count of Coffee per Week") +
+  ylab("Hours of sleep per night") + 
+  ggtitle("Relationship between average Coffee consumption and hours of sleep per night") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+Conclusion:
+In the next step we fit the model with these two variables. We can conclude that we have a p-value of 0.004034, which is relatively high, compared to the p-values we had in the tutorials. There appears to be a not very strong linear relationship between count of Coffee per Week and Hours of Sleep per night, indicated by the trend on the scatter plot, the correlation coefficient of -0.5094495 and the lightly random scatter of the residual plot.  We can see a downtrend here and conclude, that the counts of coffee has a negative impact of the duration of sleep per night, probably due to the caffeine in it. The hours of sleep tend to go down, with increasing coffee (and caffeine) consumption.
+
+### Research Question 2
+Secondly we ant to research the relation of coffee consumption and the quality of sleep an individual experiences.
+```{r, message=FALSE}
+# Quick look at top 5 rows of data
+ggplot(survey, aes(x = coffeeAverage, y = sleepQuality)) +
+  geom_point(shape=23, fill="blue", color="darkred", size=2) +                # then, generate a scatter plot layer, PLUS...
+  # it would be a good idea to further improve the aesthetics of the plot
+  xlab("Count of Coffee per Week") +
+  ylab("Quality of sleep from 0 to 10") + 
+  ggtitle("Relationship between sleep Quality per night and average coffee Consumption") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+We see a lower p-value of 3.229e-05 than in research question 1, which makes us more confident here.
+```{r, message=FALSE}
+#Fit a model for Count of Coffee per Week to sleepQuality
+fit <- lm(coffeeAverage~ sleepQuality, data = survey)
+fit # print
+summary(fit)
+```
+We can see that the correlation here is higher in absolutes than with research question 1 with -0.682732.
+```{r, message=FALSE}
+
+cor(survey$coffeeAverage, survey$sleepQuality) #
+
+```
+Now we do some testing, with resiaduals vs fitted.
+```{r, message=FALSE}
+# we use plot() on the `fit` object 
+plot(fit, which = 1) 
+
+```
+
+```{r, message=FALSE}
+ggplot(fit, aes(x = .fitted, y = .resid)) +
+  geom_point(shape=23, fill="blue", color="darkred", size=2) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "red") +
+  ggtitle("Resid vs Fitted") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+
+```{r, message=FALSE}
+ggplot(survey, aes(x = coffeeAverage, y = sleepQuality)) +
+  geom_point(shape=23, fill="blue", color="darkred", size=2) +                
+  geom_smooth(method = "lm") +  # *NEW* add linear regression model
+  xlab("Count of Coffee per Week") +
+  ylab("Quality of Sleep per night") + 
+  ggtitle("Relationship between average Coffee consumption and quality of sleep") + theme(
+plot.title = element_text(color="black", size=12, face="bold.italic" ),
+axis.title.x = element_text(color="blue", size=12, face="bold"),
+axis.title.y = element_text(color="darkred", size=12, face="bold")
+)
+```
+
+There appears to be a lightly linear relationship between count of Coffee per Week and Quality of Sleep per night, indicated by the trend on the scatter plot, the correlation coefficient of -0.682732 and the random scatter of the residual plot. We can see a downtrend here and conclude, that the counts of coffee has a negative impact of the quality of sleep per night.
+
+## Articles
+### Article 1:
+Adolescents reporting high caffeine intake were more likely to experience sleepiness in the morning. 
+<br> <br>
+Referencing:<br>
+Paraphrased:  Clark (2017) states that high caffeine consumption amongst adolescents were 1.9 times more likely to experience complications in sleeping and were 1.8 times more likely to report tiredness in the morning as opposed to adolescents with a much less caffeine consumption
+<br> <br>
+Clark, I., & Landolt, H. P. (2017). Coffee, caffeine, and sleep: A systematic review of epidemiological studies and randomized controlled trials. Sleep Medicine Reviews, 31, 70–78. https://doi.org/10.1016/j.smrv.2016.01.006 
+<br>
+
+### Article 2:
+According to Article 2 Poor sleep quality is associated with coffee and energy drink intake.
+<br> <br>
+Referencing: <br>
+Sawa (2015) reports that in addition, the use of coffee and energy drinks, perceived stress, and excessive daytime sleepiness were linked to greater probabilities of having poor sleep quality.
+<br><br>
+Sawah, M. A., Ruffin, N., Rimawi, M., Concerto, C., Aguglia, E., Chusid, E., Infortuna, C., & Battaglia, F. (2015). Perceived stress and coffee and energy drink consumption predict poor sleep quality in podiatric medical students. Journal of the American Podiatric Medical Association, 105(5), 429–434. https://doi.org/10.7547/14-082 
+
+### Relation
+The findings of Articles both relate to our findings, which say that students with higher coffee consumption experience worse sleep quality.
